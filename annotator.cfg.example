@@ -8,3 +8,5 @@ ELASTICSEARCH_INDEX = 'annotator'
 
 AUTH_ON = False
 AUTHZ_ON = False
+
+URL_PREFIX="/api"

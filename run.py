@@ -101,10 +101,11 @@ def main():
         else:
             g.authorize = mock_authorizer
 
-    app.register_blueprint(store.store)
+    app.register_blueprint(store.store,url_prefix=app.config.get("URL_PREFIX",""))
 
     host = os.environ.get('HOST', '127.0.0.1')
     port = int(os.environ.get('PORT', 5000))
+    log.info("Running with prefix %s" % (app.config.get("URL_PREFIX",""),))
     app.run(host=host, port=port)
 
 if __name__ == '__main__':
